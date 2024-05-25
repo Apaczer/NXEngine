@@ -12,6 +12,34 @@ This repository contains source code of my NXEngine fork for various weak device
 3. Ports to various platforms.
 4. Russification.
 
+## DATA files
+
+You will need following assets to run `./nx` executable:
+
+**Provided here:**
+- sprites.sif
+- smalfont.bmp
+- tilekey.dat
+
+**Provided externally:**
+- Dokutsu.exe
+- data/ - dir from org game.
+- xm/ - dir with [XM sound files](https://github.com/Apaczer/NXEngine/blob/1083a338213004e689f3c2a430db9158a4be45b5/sound/sound.cpp#L30) in lowercase (for SDL_mixer)
+
+_Directory structure:_
+```
+cavestory
+├── data/
+├── xm/
+├── Doukutsu.exe
+├── nx
+├── smalfont.bmp
+├── sprites.sif
+└── tilekey.dat
+```
+
+In linux env you can use run `dl_data.sh` script here to download and extract all necessary assets.
+
 ## Download
 
 You can download ready-to-run packages with NXEngine and Cave Story here:

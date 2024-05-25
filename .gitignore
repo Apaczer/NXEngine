@@ -28,10 +28,11 @@ data/
 org/
 endpic/
 pxt/
-xm/
+*.xm
 
 # Runtime output
 settings.dat
 stage.dat
 wavetable.dat
 debug.txt
+*.pcm
