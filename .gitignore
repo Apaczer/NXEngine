@@ -21,3 +21,17 @@
 
 # Executables
 *.exe
+nx
+
+# Data files
+data/
+org/
+endpic/
+pxt/
+xm/
+
+# Runtime output
+settings.dat
+stage.dat
+wavetable.dat
+debug.txt
