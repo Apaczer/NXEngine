@@ -21,9 +21,10 @@ INCPATH       = -I$(SYSROOT)/usr/include -I$(SYSROOT)/usr/include/SDL -I$(SYSROO
 LINK          = $(CXX)
 LFLAGS        = -Wl,-O1 -Wl,-rpath,$(SYSROOT)/usr/lib
 LIBS_SHARED   = -lSDL -lSDL_ttf -lSDL_mixer
-LIBS_STATIC   = /usr/local/lib/libSDLmain.a /usr/local/lib/libSDL.a /usr/local/lib/libSDL_ttf.a -ldl -lpthread -lfreetype
+LIBS_STATIC   = $(SYSROOT)/usr/lib/libSDLmain.a $(SYSROOT)/usr/lib/libSDL.a $(SYSROOT)/usr/lib/libSDL_ttf.a -ldl -lpthread -lfreetype -lbz2 -lz -lpng
 STRIP         = $(CROSS_COMPILE)strip
 DEL_FILE      = rm -f
+FILE_DATE     = $(shell date +%Y-%m-%d)
 
 ####### Output directory
 
@@ -337,6 +338,8 @@ first: all
 
 ####### Build rules
 
+.PHONY: data
+
 all: $(TARGET)
 
 $(TARGET):  $(OBJECTS)  
@@ -348,9 +351,23 @@ ifeq ($(BUILD),static)
 endif
 	$(STRIP) $(TARGET)
 
+release: all
+	mkdir -p rel
+	cp sprites.sif smalfont.bmp tilekey.dat rel/
+	cp Doukutsu.exe rel/
+	cp -r data/ xm/ rel/
+	cp $(TARGET) rel/
+
+zip: release
+	cd rel && zip -r ../$(TARGET)-$(FILE_DATE).zip .
+
+data:
+	./dl_data.sh
+
 clean:
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
+	-rm -rf rel/
 
 ####### Sub-libraries
 

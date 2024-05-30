@@ -2,13 +2,14 @@
 
 # get data & Doukutsu.exe with English pre-patched translation
 wget https://www.cavestory.org/downloads/cavestoryen.zip
-(sha256sum cavestoryen.zip && exit) || rm cavestoryen.zip ; test -f cavestoryen.zip || exit
+sha256sum -c --ignore-missing dl_data.hash || rm cavestoryen.zip ; test -f cavestoryen.zip || exit
 unzip cavestoryen.zip
-mv CaveStory/** . && rm CaveStory
+cp -r CaveStory/* . && rm -r CaveStory
+rm cavestoryen.zip
 
 # get XM tracks 
 wget https://www.cavestory.org/soundtrack/cave-story/xm/all.tar
-(sha256sum all.tar && exit) || rm all.tar ; test -f all.tar || exit
+sha256sum -c --ignore-missing dl_data.hash || rm all.tar ; test -f all.tar || exit
 mkdir -p xm
 tar xvf all.tar --directory=xm
 cd xm
