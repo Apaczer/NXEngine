@@ -338,7 +338,7 @@ first: all
 
 ####### Build rules
 
-.PHONY: data
+.PHONY: data org2xm
 
 all: $(TARGET)
 
@@ -363,6 +363,10 @@ zip: release
 
 data:
 	./dl_data.sh
+
+org2xm : org2xm/src/org2xm.c
+	gcc $^ -ggdb3 -g -Og -o $@_exec -O2 -Wall -Wextra -pedantic -s -lm
+	./org2xm.sh
 
 clean:
 	-$(DEL_FILE) $(OBJECTS)

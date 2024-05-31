@@ -26,6 +26,9 @@ You will need following assets to run `./nx` executable:
 - data/ - dir from org game.
 - xm/ - dir with [XM sound files](https://github.com/Apaczer/NXEngine/blob/1083a338213004e689f3c2a430db9158a4be45b5/sound/sound.cpp#L30) in lowercase (for SDL_mixer)
 
+**Binary build:**
+- nx
+
 _Directory structure:_
 ```
 cavestory
@@ -38,7 +41,12 @@ cavestory
 └── tilekey.dat
 ```
 
-In linux env you can use run `dl_data.sh` script here to download and extract all necessary assets.
+In linux env you can use run `dl_data.sh` script from this repo to download and extract all "provided externally" assets.
+If you have original *.org songs in `org/` dir already (use `./nx` native build if not) and gcc `binutils` pkg installed, you could just use org2xm submodule tool:
+```
+git submodule update --init --recursive
+make org2xm
+```
 
 ## Download
 

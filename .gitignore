@@ -22,6 +22,7 @@
 # Executables
 *.exe
 nx
+*_exec
 
 # Data files
 data/
