@@ -49,6 +49,13 @@ bool input_init(void)
         mappings[SDLK_LSHIFT] = NEXTWPNKEY;
         mappings[SDLK_BACKSPACE] = INVENTORYKEY;
         mappings[SDLK_RETURN] = MAPSYSTEMKEY;
+#elif _MIYOO
+        mappings[SDLK_LALT] = JUMPKEY;
+        mappings[SDLK_LCTRL] = FIREKEY;
+        mappings[SDLK_LSHIFT] = PREVWPNKEY;
+        mappings[SDLK_SPACE] = NEXTWPNKEY;
+        mappings[SDLK_BACKSPACE] = INVENTORYKEY;
+        mappings[SDLK_RETURN] = MAPSYSTEMKEY;
 #elif _MOTOMAGX
         mappings[SDLK_PLUS] = JUMPKEY;
         mappings[SDLK_RETURN] = FIREKEY;
