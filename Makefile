@@ -15,8 +15,10 @@ CC            = $(CROSS_COMPILE)gcc
 CXX           = $(CROSS_COMPILE)g++
 DEFINES       = # -D_L10N_CP1251
 DEFINES       = -D_320X240 -D_DINGUX -D_MIYOO -D_SDL_MIXER
-CFLAGS        = -pipe -O2 $(DEFINES)
-CXXFLAGS      = -pipe -O2 $(DEFINES)
+CFLAGS        = -pipe -Ofast $(DEFINES)
+CFLAGS       += $(COPT)
+CXXFLAGS      = -pipe -Ofast $(DEFINES)
+CXXFLAGS     += $(CXXOPT)
 INCPATH       = -I$(SYSROOT)/usr/include -I$(SYSROOT)/usr/include/SDL -I$(SYSROOT)/usr/include -I.
 LINK          = $(CXX)
 LFLAGS        = -Wl,-O1 -Wl,-rpath,$(SYSROOT)/usr/lib
@@ -351,18 +353,25 @@ ifeq ($(BUILD),static)
 endif
 	$(STRIP) $(TARGET)
 
-release: all
+rel: all
 	mkdir -p rel
 	cp sprites.sif smalfont.bmp tilekey.dat rel/
-	cp Doukutsu.exe rel/
+	-cp Doukutsu.exe rel/
 	cp -r data/ xm/ rel/
 	cp $(TARGET) rel/
 
-zip: release
+ipk: rel
+	rm rel/$(TARGET)
+	gm2xpkg
+
+zip: rel
 	cd rel && zip -r ../$(TARGET)-$(FILE_DATE).zip .
 
 data:
-	./dl_data.sh
+	./dl_data.sh all
+
+data-cave:
+	./dl_data.sh cave
 
 org2xm : org2xm/src/org2xm.c
 	gcc $^ -ggdb3 -g -Og -o $@_exec -O2 -Wall -Wextra -pedantic -s -lm

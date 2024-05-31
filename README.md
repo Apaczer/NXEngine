@@ -41,24 +41,16 @@ cavestory
 └── tilekey.dat
 ```
 
-In linux env you can use run `dl_data.sh` script from this repo to download and extract all "provided externally" assets.
+In linux env you can execute `./dl_data.sh all` from this repo to download and extract all "provided externally" assets.
 If you have original *.org songs in `org/` dir already (use `./nx` native build if not) and gcc `binutils` pkg installed, you could just use org2xm submodule tool:
 ```
 git submodule update --init --recursive
 make org2xm
 ```
 
-## Download
-
-You can download ready-to-run packages with NXEngine and Cave Story here:
-
-- [On the page of EXL's Developer Blog](http://exlmoto.ru/nxengine/#4).
-- [On the page of Cave Story Tribute Fan Site](https://www.cavestory.org/download/cave-story.php).
-- [On the page of GitHub Releases](https://github.com/EXL/NXEngine/releases).
-
-Russian and English versions of this game are available.
-
 ## Build instructions
+
+### Generic
 
 Building requires some SDL libraries: SDL-1.2, SDL_ttf-2.0, SDL_mixer-1.2 (optional). Please install developer versions of these libraries before building the project. You can open "nx.pro" project file in the [Qt Creator](https://www.qt.io/download) IDE for easy code navigation.
 
@@ -76,6 +68,38 @@ Platform defines:
 | `-D_L10N_CP1251` | Enable Russian l10n (you need a `*.ttf` font and Russian version of data-files). |
 
 Please read [addition building information (in Russian)](http://exlmoto.ru/nxengine/#3) in the EXL's Developer Blog.
+
+### Native build
+
+```
+make rel
+```
+
+### Docker CROSS-COMPILE for MiyooCFW
+
+```
+docker run --volume ./:/src/ -it miyoocfw/toolchain-shared-uclibc:latest
+cd /src
+export OPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto" CXXOPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto"
+make clean
+make rel COPT="$OPT" CXXOPT="$OPT"
+exit
+```
+
+### Extract data from the Web
+- full data with XM tracks
+```
+make data
+```
+- only necessary data and convert .org to .xm
+```
+make clean
+make -j$(nproc)
+make data-cave
+./nx
+git submodule update --init --recursive
+make org2xm
+```
 
 ## Screens
 

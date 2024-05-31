@@ -31,6 +31,14 @@ endpic/
 pxt/
 *.xm
 
+# Makefile output
+rel/
+package/
+opkg_assets/
+nx*.zip
+nx.ipk
+nx.lnk
+
 # Runtime output
 settings.dat
 stage.dat
