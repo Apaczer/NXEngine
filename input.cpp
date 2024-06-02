@@ -42,7 +42,7 @@ bool input_init(void)
 		mappings[SDLK_UP] = UPKEY;
 		mappings[SDLK_DOWN] = DOWNKEY;
 
-#ifdef _DINGUX
+#if defined(_DINGUX) && !defined(_MIYOO)
         mappings[SDLK_LCTRL] = JUMPKEY;
         mappings[SDLK_LALT] = FIREKEY;
         mappings[SDLK_SPACE] = PREVWPNKEY;
@@ -101,6 +101,8 @@ bool input_init(void)
         mappings[SDLK_HASH] = OPTIONS_KEY; // #
 #elif _MOTOEZX
         mappings[SDLK_e] = OPTIONS_KEY; // Mod Key + Camera
+#elif _MIYOO
+        mappings[SDLK_RCTRL] = OPTIONS_KEY;
 #else
         mappings[SDLK_TAB] = OPTIONS_KEY;
 #endif

@@ -63,11 +63,16 @@ void pause_tick()
     draw_sprite(cx, cy, SPR_RESETPROMPT);
 #endif
 
-#ifdef _DINGUX
+#if defined(_DINGUX) && !defined(_MIYOO)
     const char *str = "L:Options";
     cx = (SCREEN_WIDTH / 2) - (GetFontWidth(str, 0) / 2) - 4;
     cy = (SCREEN_HEIGHT - 8) - GetFontHeight();
     f3wd = font_draw(cx, cy, "L", 0);
+#elif _MIYOO
+    const char *str = "R:Options";
+    cx = (SCREEN_WIDTH / 2) - (GetFontWidth(str, 0) / 2) - 4;
+    cy = (SCREEN_HEIGHT - 8) - GetFontHeight();
+    f3wd = font_draw(cx, cy, "R", 0);
 #elif _MOTOMAGX
     const char *str = "#:Options";
     cx = (SCREEN_WIDTH / 2) - (GetFontWidth(str, 0) / 2) - 4;
