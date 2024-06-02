@@ -101,6 +101,21 @@ git submodule update --init --recursive
 make org2xm
 ```
 
+## Changelog MiyooCFW
+
+2.1
+
+- correct MIYOO inputs binding
+
+2.0
+
+- fixed music stuttering via XM tracks played through updated SDL_Mixer libs with MOD support (libmikmod)
+- other changes from upstream
+
+1.0
+
+- initial legacy release without music support
+
 ## Screens
 
 Ritmix RZX-50:

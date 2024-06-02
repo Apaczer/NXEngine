@@ -5,6 +5,7 @@ if test "$1" ==  "cave" || test "$1" ==  "all"; then
     wget https://www.cavestory.org/downloads/cavestoryen.zip
     sha256sum -c --ignore-missing dl_data.hash || rm cavestoryen.zip ; test -f cavestoryen.zip || exit
     unzip cavestoryen.zip
+    rm -rf CaveStory/Manual && rm CaveStory/Readme.txt CaveStory/Manual.html CaveStory/Config.dat
     cp -r CaveStory/* . && rm -r CaveStory
     rm cavestoryen.zip
 fi

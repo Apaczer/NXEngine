@@ -355,6 +355,7 @@ endif
 
 rel: all
 	mkdir -p rel
+	cp LICENSE rel/LICENSE.txt
 	cp sprites.sif smalfont.bmp tilekey.dat rel/
 	-cp Doukutsu.exe rel/
 	cp -r data/ xm/ rel/
@@ -362,7 +363,8 @@ rel: all
 
 ipk: rel
 	rm rel/$(TARGET)
-	gm2xpkg
+	gm2xpkg -c pkg.cfg
+	gm2xpkg -i pkg.cfg
 
 zip: rel
 	cd rel && zip -r ../$(TARGET)-$(FILE_DATE).zip .
