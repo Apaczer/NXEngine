@@ -80,7 +80,7 @@ make rel
 ```
 docker run --volume ./:/src/ -it miyoocfw/toolchain-shared-uclibc:latest
 cd /src
-export OPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto" CXXOPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto"
+export OPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto"
 make clean
 make rel COPT="$OPT" CXXOPT="$OPT"
 exit

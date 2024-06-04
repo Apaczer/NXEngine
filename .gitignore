@@ -43,5 +43,6 @@ nx.lnk
 settings.dat
 stage.dat
 wavetable.dat
+profile.dat
 debug.txt
 *.pcm

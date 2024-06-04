@@ -544,7 +544,7 @@ SDL_Rect dstrect;
 		{	// variable spacing
 			if (ch == ' ' && shrink_spaces)
 			{	// 10.5 px for spaces - make smaller than they really are - the default
-				x += (SCALE == 1) ? 5 : 10;
+				x += (SCALE == 1) ? 4 : 10;
 				if (i & 1) x++;
 			}
 			else
