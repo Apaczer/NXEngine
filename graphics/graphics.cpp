@@ -187,7 +187,7 @@ bool Graphics::SetResolution(int r, bool restoreOnFailure)
 	if (r == 0)
 	{
 #if defined (_480X272) || defined (_320X240)
-        is_fullscreen = false;
+        is_fullscreen = true;
         factor = 1;
 #else
         is_fullscreen = true;

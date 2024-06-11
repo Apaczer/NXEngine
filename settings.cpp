@@ -51,9 +51,9 @@ bool settings_load(Settings *setfile)
 		// I found that 8bpp->32bpp blits are actually noticably faster
 		// than 32bpp->32bpp blits on several systems I tested. Not sure why
 		// but calling SDL_DisplayFormat seems to actually be slowing things
-		// down. This goes against established wisdom so if you want it back on,
-		// run "displayformat 1" in the console and restart.
-		setfile->displayformat = false;
+		// down. This goes against established wisdom but if you want test it
+		// then run "displayformat 0" in the console and restart.
+		setfile->displayformat = true;
 		
 		return 1;
 	}
