@@ -34,7 +34,11 @@ char SSInit(void)
 	fmt.freq = SAMPLE_RATE;
     fmt.format = AUDIO_S16;
     fmt.channels = 2;
+#ifdef _LOW_AUDIOBUF
+    fmt.samples = 256;
+#else
     fmt.samples = 512;
+#endif
 	fmt.callback = mixaudio;
 	fmt.userdata = NULL;
 	
