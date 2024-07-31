@@ -98,11 +98,18 @@ docker run --volume ./:/src/ -it miyoocfw/toolchain-shared-uclibc:latest
 cd /src
 export OPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto"
 make clean
-make rel COPT="$OPT" CXXOPT="$OPT"
+make -j$(nproc) miyoo-ipk COPT="$OPT" CXXOPT="$OPT"
 exit
 ```
 
 ## Changelog MiyooCFW
+
+2.2
+
+- rename read music data files according to original *.exe extraction
+- reduce audio buffer size for speed
+- enable by default `displayformat 1` console option and force FullScreen for 320px
+- correct text misallignment on lowres
 
 2.1
 

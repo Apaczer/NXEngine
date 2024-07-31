@@ -361,10 +361,9 @@ rel: all
 	cp -r data/ xm/ rel/
 	cp $(TARGET) rel/
 
-ipk: rel
+miyoo-ipk: rel
 	rm rel/$(TARGET)
-	gm2xpkg -c pkg.cfg
-	gm2xpkg -i pkg.cfg
+	gm2xpkg -i -c platform/Miyoo/pkg.cfg
 
 zip: rel
 	cd rel && zip -r ../$(TARGET)-$(FILE_DATE).zip .
