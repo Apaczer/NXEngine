@@ -24,7 +24,7 @@ You will need following assets to run `./nx` executable:
 **Provided externally:**
 - Dokutsu.exe
 - data/ - dir from org game.
-- xm/ - dir with [XM sound files](https://github.com/Apaczer/NXEngine/blob/1083a338213004e689f3c2a430db9158a4be45b5/sound/sound.cpp#L30) in lowercase (for SDL_mixer)
+- xm/ - dir with [XM sound files](https://github.com/Apaczer/NXEngine/blob/6c5f0ca89ca9140459bfa98be140077fa97cd2de/sound/sound.cpp#L30) in lowercase (for SDL_mixer)
 
 **Binary build:**
 - nx
@@ -69,6 +69,22 @@ Platform defines:
 
 Please read [addition building information (in Russian)](http://exlmoto.ru/nxengine/#3) in the EXL's Developer Blog.
 
+### Extract data from the Web
+- full data with XM tracks
+```
+make data
+```
+- only necessary data and convert .org to .xm
+```
+make clean
+make -j$(nproc)
+make data-cave
+./nx
+
+git submodule update --init --recursive
+make org2xm
+```
+
 ### Native build
 
 ```
@@ -84,21 +100,6 @@ export OPT="-mcpu=arm926ej-s -mtune=arm926ej-s -fno-PIC -flto"
 make clean
 make rel COPT="$OPT" CXXOPT="$OPT"
 exit
-```
-
-### Extract data from the Web
-- full data with XM tracks
-```
-make data
-```
-- only necessary data and convert .org to .xm
-```
-make clean
-make -j$(nproc)
-make data-cave
-./nx
-git submodule update --init --recursive
-make org2xm
 ```
 
 ## Changelog MiyooCFW

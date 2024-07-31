@@ -1,3 +1,3 @@
 Please download "*.xm" tracks from reliable source
 
-Extract *.tar to "xm/" directory, and rename original track names (ref. https://www.cavestory.org/game-info/internal-track-names.php), to internal game engine.
+Extract *.tar (or other archive) to "xm/" directory, and rename original track names (ref. https://www.cavestory.org/game-info/internal-track-names.php), to internal game engine ones in lowercase.

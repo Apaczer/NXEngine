@@ -68,11 +68,11 @@ if test "$1" ==  "xm" || test "$1" ==  "all"; then
     "People of the Root" \
     )
 
-    new_names=(access gestation town plant balrog gravity cemetary safety egg pulse grasstown eyesofflame meltdown2 tyrant run jenka1 jenka2 labyrinth geothermal oppression waterway quiet scorching oside heroend theme lastcave balcony charge zombie lastbattle breakdow+n hell seal credits fanfale1 fanfale2 fanfale3 gameover toroko white xxxx kaze halloween2 cave rockorg mdown leef)
+    # old_names=(access gestation town plant balrog gravity cemetary safety egg pulse grasstown eyesofflame meltdown2 tyrant run jenka1 jenka2 labyrinth geothermal oppression waterway quiet scorching oside heroend theme lastcave balcony charge zombie lastbattle breakdow+n hell seal credits fanfale1 fanfale2 fanfale3 gameover toroko white xxxx kaze halloween2 cave rockorg mdown leef)
 
     official_names=(access vivi mura plant ginsuke gravity cemetery anzen wanpaku kodou weed fireeye mdown2 dr escape jenka jenka2 maze grand ironh marine quiet wanpak2 oside requiem curly lastcave balcony lastbtl zonbie lastbt3 bdown hell ballos ending fanfale1 fanfale2 fanfale3 gameover toroko white xxxx kaze halloween2 cave rockorg mdown leef)
 
-    for i in "${!org_names[@]}"; do mv "${org_names[$i]}.xm" "${new_names[$i]}.xm"; done
+    for i in "${!org_names[@]}"; do mv "${org_names[$i]}.xm" "${official_names[$i]}.xm"; done
     ls
     cd ..
 fi
